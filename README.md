@@ -10,13 +10,16 @@ _{This is a detailed description of your application. Give as much detail as nee
 
 ## Setup
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
-
-_{Leave nothing to chance! You want it to be easy for potential employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Are there other applications this app depends on?}_
+* _Composer must be installed on your system prior to running this application._
+* _For more information, visit https://getcomposer.org/ _
+* _Be sure your composer.json file contains the following lines:_
+* _{
+    "require": {
+        "silex/silex": "~1.1",
+        "twig/twig":"~1.0"
+    }
+}_
+* _Once setup is complete, start your PHP server at the root level of the address_book directory and visit https://localhost:8000/ to run this application._
 
 ## Technologies Used
 

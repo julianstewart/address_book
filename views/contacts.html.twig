@@ -12,6 +12,8 @@
             <ul>
                 {% for contact in contacts %}
                     <li>{{ contact.getName }}</li>
+                    <li>{{ contact.getPhoneNumber}}</li>
+                    <li>{{ contact.getAddress }}</li>
                 {% endfor %}
             </ul>
         {% endif %}
