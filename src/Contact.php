@@ -1,11 +1,15 @@
 <?php
-class Task
+class Contact
 {
-    private $description;
+    private $name;
+    private $phone_number;
+    private $address;
 
-    function __construct($description)
+    function __construct($name, $phone_number, $address)
     {
-        $this->description = $description;
+        $this->name = $name;
+        $this->phone_number = $phone_number;
+        $this->address = $address;
     }
 
     function setDescription($new_description)
