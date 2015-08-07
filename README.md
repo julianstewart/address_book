@@ -4,15 +4,11 @@
 
 #### By _**{Julian Stewart}**_
 
-## Description
-
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. Do you want other developers to use this code in their apps? Talk about things like that here in simple terms.}_
-
 ## Setup
 
 * _Composer must be installed on your system prior to running this application._
-* _For more information, visit https://getcomposer.org/ _
-* _Be sure your composer.json file contains the following lines:_
+* _Visit https://getcomposer.org/ for more information._
+* _Be sure your composer.json file contains the following dependencies:_
 * _{
     "require": {
         "silex/silex": "~1.1",
@@ -20,10 +16,6 @@ _{This is a detailed description of your application. Give as much detail as nee
     }
 }_
 * _Once setup is complete, start your PHP server at the root level of the address_book directory and visit https://localhost:8000/ to run this application._
-
-## Technologies Used
-
-_{Tell me about the languages you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}_
 
 ### Legal
 
