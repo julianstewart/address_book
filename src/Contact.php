@@ -12,29 +12,29 @@ class Contact
         $this->address = $address;
     }
 
-    function setDescription($new_description)
+    function setName($new_name)
     {
-        $this->description = (string) $new_description;
+        $this->name = (string) $new_name;
     }
 
-    function getDescription()
+    function getName()
     {
-        return $this->description;
+        return $this->name;
     }
 
     function save()
     {
-        array_push($_SESSION['list_of_tasks'], $this);
+        array_push($_SESSION['list_of_contacts'], $this);
     }
 
     static function getAll()
     {
-        return $_SESSION['list_of_tasks'];
+        return $_SESSION['list_of_contacts'];
     }
 
     static function deleteAll()
     {
-        $_SESSION['list_of_tasks'] = array();
+        $_SESSION['list_of_contacts'] = array();
     }
 }
 

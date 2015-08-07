@@ -7,11 +7,11 @@
     <div class="container">
         <h1>Contacts</h1>
 
-        {% if tasks is not empty %}
-            <p>Here are all your tasks:</p>
+        {% if contacts is not empty %}
+            <p>Here are all your contacts:</p>
             <ul>
-                {% for task in tasks %}
-                    <li>{{ task.getDescription }}</li>
+                {% for contact in contacts %}
+                    <li>{{ contact.getName }}</li>
                 {% endfor %}
             </ul>
         {% endif %}

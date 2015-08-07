@@ -4,8 +4,8 @@
 
     session_start();
 
-    if (empty($_SESSION['list_of_tasks'])) {
-        $_SESSION['list_of_tasks'] = array();
+    if (empty($_SESSION['list_of_contacts'])) {
+        $_SESSION['list_of_contacts'] = array();
     }
 
     $app = new Silex\Application();
@@ -16,19 +16,19 @@
 
     $app->get("/", function() use ($app) {
 
-        return $app['twig']->render('tasks.html.twig', array('tasks' => Task::getAll()));
+        return $app['twig']->render('contacts.html.twig', array('contacts' => Contact::getAll()));
 
     });
 
-    $app->post("/tasks", function() use ($app) {
-        $task = new Task($_POST['description']);
-        $task->save();
-        return $app['twig']->render('create_task.html.twig', array('newtask' => $task));
+    $app->post("/contacts", function() use ($app) {
+        $contact = new Contact($_POST['contact_name']);
+        $contact->save();
+        return $app['twig']->render('create_contact.html.twig', array('newcontact' => $contact));
     });
 
-    $app->post("/delete_tasks", function() use ($app) {
-        Task::deleteAll();
-        return $app['twig']->render('delete_tasks.html.twig');
+    $app->post("/delete_contacts", function() use ($app) {
+        Contact::deleteAll();
+        return $app['twig']->render('delete_contacts.html.twig');
     });
 
     return $app;
