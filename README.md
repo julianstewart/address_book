@@ -8,10 +8,23 @@
 
 _This project makes use of a PHP dependency manager. Full details and installation instructions can be found at https://getcomposer.org/_
 
+_Your computer must also be set up to support PDO (PHP Data Objects) and MySQL._
+
 _To run the application:_
 
 * _Start your PHP server from the web/ directory within the project folder_
+* _Start your MySQL server, being sure to adjust the port number as needed_
+* _Import the databases included in this repository in the sql/ directory, or run the following commands:
+<pre>
+CREATE DATABASE address_book;
+USE address_book;
+CREATE TABLE contacts (id serial PRIMARY KEY, name VARCHAR (255), phone_number INT, address VARCHAR (255));
+</pre>
 * _Point your browser to your localhost server address_
+
+## Technologies Used
+
+_PHP, Silex, Twig, MySQL_ 
 
 ### Legal
 
