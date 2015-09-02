@@ -1,14 +1,13 @@
-# _{Rolodexterous}_
+# _Rolodexterous_
 
-##### _{Rolodexterous is a simple PHP-based address book & contact management app created for the Epicodus week one object-oriented PHP Code Review}, {2015-08-07}_
+##### _Rolodexterous is a simple PHP-based address book & contact management app created for the Epicodus week one object-oriented PHP Code Review, 2015-09-02_
 
-#### By _**{Julian Stewart}**_
+#### By _**Julian Stewart**_
 
 ## Setup
 
-* _Composer must be installed on your system prior to running this application._
-* _Visit https://getcomposer.org/ for more information._
-* _Be sure your composer.json file contains the following dependencies:_
+_This project makes use of a PHP dependency manager. Full details and installation instructions can be found at https://getcomposer.org/ _
+_Be sure your composer.json file contains references to the following dependencies:_
 * _{
     "require": {
         "silex/silex": "~1.1",
@@ -19,9 +18,7 @@
 
 ### Legal
 
-*{This is boilerplate legal language. Read through it, and if you like it, use it. There are other license agreements online, but you can generally copy and paste this.}*
-
-Copyright (c) 2015 **_{List of contribtors}_**
+Copyright (c) 2015 **_Julian Stewart_**
 
 This software is licensed under the MIT license.
 
