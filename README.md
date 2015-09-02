@@ -6,7 +6,7 @@
 
 ## Setup
 
-_This project makes use of a PHP dependency manager. Full details and installation instructions can be found at https://getcomposer.org/ _
+_This project makes use of a PHP dependency manager. Full details and installation instructions can be found at https://getcomposer.org/_
 
 _To run the application:_
 
