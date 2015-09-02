@@ -1,0 +1,3 @@
+1. The user inputs "Jane Doe". Input is saved to the database "address_book_test" in table "contacts" within the column "name".
+2. The user inputs "555-555-5555". Input is saved to the database "address_book_test" in table "contacts" within the column "phone_number".
+3. The user inputs "5 Main Street, Anytown, Anystate 55555". Input is saved to the database "address_book_test" in table "contacts" within the column "address".

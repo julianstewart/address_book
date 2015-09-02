@@ -18,13 +18,13 @@ _To run the application:_
 <pre>
 CREATE DATABASE address_book;
 USE address_book;
-CREATE TABLE contacts (id serial PRIMARY KEY, name VARCHAR (255), phone_number INT, address VARCHAR (255));
+CREATE TABLE contacts (id serial PRIMARY KEY, name VARCHAR (255), phone_number VARCHAR(255), address VARCHAR (255));
 </pre>
 * _Point your browser to your localhost server address_
 
 ## Technologies Used
 
-_PHP, Silex, Twig, MySQL_ 
+_PHP, Silex, Twig, MySQL_
 
 ### Legal
 
