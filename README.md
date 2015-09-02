@@ -7,14 +7,11 @@
 ## Setup
 
 _This project makes use of a PHP dependency manager. Full details and installation instructions can be found at https://getcomposer.org/ _
-_Be sure your composer.json file contains references to the following dependencies:_
-* _{
-    "require": {
-        "silex/silex": "~1.1",
-        "twig/twig":"~1.0"
-    }
-}_
-* _Once setup is complete, start your PHP server at the root level of the address_book directory and visit https://localhost:8000/ to run this application._
+
+_To run the application:_
+
+* _Start your PHP server from the web/ directory within the project folder_
+* _Point your browser to your localhost server address_
 
 ### Legal
 
