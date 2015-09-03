@@ -35,6 +35,28 @@
             var_dump($test_Name);
 
         }
+
+        function test_getPhoneNumber()
+        {
+
+            //arrange
+            $phone_number = "555-555-5555";
+            $id = 1;
+            $test_phoneNumber = new Contact($phone_number, $id);
+
+            //act
+            $result = $test_phoneNumber->getPhoneNumber();
+
+            //assert
+            $this->assertEquals($phone_number, $result);
+
+            //for debugging
+            var_dump($phone_number);
+            var_dump($id);
+            var_dump($test_phoneNumber);
+
+        }
+
     }
 
 ?>
