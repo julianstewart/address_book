@@ -72,16 +72,16 @@
         function test_save()
         {
             //arrange
-            $name = "";
-            $phone_number = "";
-            $address = "";
+            $name = "Jane Doe";
+            $phone_number = "555-555-5555";
+            $address = "5 Main Street, Anytown, Anystate 55555";
             $test_Contact = new Contact($name, $phone_number, $address);
-            $test_Contact->save();
 
             //act
-            $result = $test_Contact::getAll();
+            $test_Contact->save();
 
             //assert
+            $result = $test_Contact::getAll();
             $this->assertEquals($test_Contact, $result[0]);
 
             //for debugging

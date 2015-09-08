@@ -45,15 +45,16 @@
             $this->address = $new_address;
         }
 
-        // function save()
-        // {
-        //     array_push($_SESSION['list_of_contacts'], $this);
-        // }
+        // need to extend insert statement to include phone number and address
+        function save()
+        {
+            $GLOBALS['DB']->exec("INSERT INTO contacts (name) VALUES ('{$this->getName()}');");
+        }
 
-        // static function getAll()
-        // {
-        //     return $_SESSION['list_of_contacts'];
-        // }
+        static function getAll()
+        {
+
+        }
 
         // static function deleteAll()
         // {
