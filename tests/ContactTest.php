@@ -20,19 +20,18 @@
 
             //arrange
             $name = "Jane Doe";
-            $id = 1;
-            $test_Name = new Contact($name, $id);
+            $phone_number = "";
+            $test_Contact = new Contact($name, $phone_number);
 
             //act
-            $result = $test_Name->getName();
+            $result = $test_Contact->getName();
 
             //assert
             $this->assertEquals($name, $result);
 
             //for debugging
-            // var_dump($name);
-            // var_dump($id);
-            // var_dump($test_Name);
+            var_dump($name);
+            var_dump($test_Contact);
 
         }
 
@@ -40,20 +39,19 @@
         {
 
             //arrange
+            $name = "";
             $phone_number = "555-555-5555";
-            $id = 1;
-            $test_phoneNumber = new Contact($phone_number, $id);
+            $test_Contact = new Contact($name, $phone_number);
 
             //act
-            $result = $test_phoneNumber->getPhoneNumber();
+            $result = $test_Contact->getPhoneNumber();
 
             //assert
             $this->assertEquals($phone_number, $result);
 
             //for debugging
             var_dump($phone_number);
-            var_dump($id);
-            var_dump($test_phoneNumber);
+            var_dump($test_Contact);
 
         }
 
