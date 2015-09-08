@@ -7,7 +7,7 @@
 
     require_once "src/Contact.php";
 
-    $server = 'mysql:host=localhost:8889;dbname=address_book_test';
+    $server = 'mysql:host=localhost;dbname=address_book_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -30,32 +30,32 @@
             $this->assertEquals($name, $result);
 
             //for debugging
-            var_dump($name);
-            var_dump($id);
-            var_dump($test_Name);
+            // var_dump($name);
+            // var_dump($id);
+            // var_dump($test_Name);
 
         }
 
-        // function test_getPhoneNumber()
-        // {
-        //
-        //     //arrange
-        //     $phone_number = "555-555-5555";
-        //     $id = 25;
-        //     $test_phoneNumber = new Contact($phone_number, $id);
-        //
-        //     //act
-        //     $result = $test_phoneNumber->getPhoneNumber();
-        //
-        //     //assert
-        //     $this->assertEquals($phone_number, $result);
-        //
-        //     //for debugging
-        //     var_dump($phone_number);
-        //     var_dump($id);
-        //     var_dump($test_phoneNumber);
-        //
-        // }
+        function test_getPhoneNumber()
+        {
+
+            //arrange
+            $phone_number = "555-555-5555";
+            $id = 1;
+            $test_phoneNumber = new Contact($phone_number, $id);
+
+            //act
+            $result = $test_phoneNumber->getPhoneNumber();
+
+            //assert
+            $this->assertEquals($phone_number, $result);
+
+            //for debugging
+            var_dump($phone_number);
+            var_dump($id);
+            var_dump($test_phoneNumber);
+
+        }
 
     }
 

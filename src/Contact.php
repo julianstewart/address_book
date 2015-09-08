@@ -3,7 +3,7 @@
     class Contact
     {
         private $name;
-        // private $phone_number;
+        private $phone_number;
         // private $address;
         private $id;
 
@@ -44,12 +44,12 @@
         // {
         //     return $this->address;
         // }
-        //
-        function save()
-        {
-            array_push($_SESSION['list_of_contacts'], $this);
-        }
-        //
+
+        // function save()
+        // {
+        //     array_push($_SESSION['list_of_contacts'], $this);
+        // }
+
         // static function getAll()
         // {
         //     return $_SESSION['list_of_contacts'];
