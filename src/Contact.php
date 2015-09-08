@@ -4,14 +4,14 @@
     {
         private $name;
         private $phone_number;
-        // private $address;
+        private $address;
         private $id;
 
-        function __construct($name, $phone_number, $id = null)
+        function __construct($name, $phone_number, $address, $id = null)
         {
             $this->name = $name;
             $this->phone_number = $phone_number;
-            // $this->address = $address;
+            $this->address = $address;
             $this->id = $id;
         }
 
@@ -35,15 +35,15 @@
             $this->phone_number = $new_phone_number;
         }
 
-        // function setAddress($new_address)
-        // {
-        //     $this->address = (string) $new_address;
-        // }
-        //
-        // function getAddress()
-        // {
-        //     return $this->address;
-        // }
+        function getAddress()
+        {
+            return $this->address;
+        }
+
+        function setAddress($new_address)
+        {
+            $this->address = $new_address;
+        }
 
         // function save()
         // {
@@ -54,7 +54,7 @@
         // {
         //     return $_SESSION['list_of_contacts'];
         // }
-        //
+
         // static function deleteAll()
         // {
         //     $_SESSION['list_of_contacts'] = array();

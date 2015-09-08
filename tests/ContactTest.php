@@ -17,11 +17,11 @@
 
         function test_getName()
         {
-
             //arrange
             $name = "Jane Doe";
             $phone_number = "";
-            $test_Contact = new Contact($name, $phone_number);
+            $address = "";
+            $test_Contact = new Contact($name, $phone_number, $address);
 
             //act
             $result = $test_Contact->getName();
@@ -30,18 +30,16 @@
             $this->assertEquals($name, $result);
 
             //for debugging
-            var_dump($name);
             var_dump($test_Contact);
-
         }
 
         function test_getPhoneNumber()
         {
-
             //arrange
             $name = "";
             $phone_number = "555-555-5555";
-            $test_Contact = new Contact($name, $phone_number);
+            $address = "";
+            $test_Contact = new Contact($name, $phone_number, $address);
 
             //act
             $result = $test_Contact->getPhoneNumber();
@@ -50,9 +48,25 @@
             $this->assertEquals($phone_number, $result);
 
             //for debugging
-            var_dump($phone_number);
             var_dump($test_Contact);
+        }
 
+        function test_getAddress()
+        {
+            //arrange
+            $name = "";
+            $phone_number = "";
+            $address = "5 Main Street, Anytown, Anystate 55555";
+            $test_Contact = new Contact($name, $phone_number, $address);
+
+            //act
+            $result = $test_Contact->getAddress();
+
+            //assert
+            $this->assertEquals($address, $result);
+
+            //for debugging
+            var_dump($test_Contact);
         }
 
     }
