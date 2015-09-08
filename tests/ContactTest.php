@@ -69,6 +69,25 @@
             var_dump($test_Contact);
         }
 
+        function test_save()
+        {
+            //arrange
+            $name = "";
+            $phone_number = "";
+            $address = "";
+            $test_Contact = new Contact($name, $phone_number, $address);
+            $test_Contact->save();
+
+            //act
+            $result = $test_Contact::getAll();
+
+            //assert
+            $this->assertEquals($test_Contact, $result[0]);
+
+            //for debugging
+            var_dump($test_Contact);
+        }
+
     }
 
 ?>
