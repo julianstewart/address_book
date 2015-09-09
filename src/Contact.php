@@ -65,7 +65,6 @@
 
         // static function deleteAll()
         // {
-        //     $_SESSION['list_of_contacts'] = array();
         // }
     }
 

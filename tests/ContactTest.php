@@ -81,7 +81,7 @@
             $test_Contact->save();
 
             //assert
-            $result = $test_Contact::getAll();
+            $result = Contact::getAll();
             $this->assertEquals($test_Contact, $result[0]);
 
             //for debugging
