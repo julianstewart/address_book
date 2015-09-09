@@ -7,7 +7,7 @@
 
     require_once "src/Contact.php";
 
-    $server = 'mysql:host=localhost;dbname=address_book_test';
+    $server = 'mysql:host=localhost:8889;dbname=address_book_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -69,12 +69,12 @@
             var_dump($test_Contact);
         }
 
-        function test_save()
+        function test_saveName()
         {
             //arrange
             $name = "Jane Doe";
-            $phone_number = "555-555-5555";
-            $address = "5 Main Street, Anytown, Anystate 55555";
+            $phone_number = "";
+            $address = "";
             $test_Contact = new Contact($name, $phone_number, $address);
 
             //act

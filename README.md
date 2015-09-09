@@ -1,6 +1,6 @@
 # _Rolodexterous_
 
-##### _Rolodexterous is a simple PHP-based address book & contact management app created for the Epicodus week one object-oriented PHP Code Review, 2015-09-02_
+##### _Rolodexterous is a simple PHP/MySQL address book & contact management app created for the Epicodus week one object-oriented PHP Code Review, 2015-09-09_
 
 #### By _**Julian Stewart**_
 

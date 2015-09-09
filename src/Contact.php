@@ -48,7 +48,7 @@
         // need to extend insert statement to include phone number and address
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO contacts (name) VALUES ('{$this->getName()}');");
+            // $GLOBALS['DB']->exec("INSERT INTO contacts (name) VALUES ('{$this->getName()}');");
         }
 
         static function getAll()
