@@ -45,15 +45,22 @@
             $this->address = $new_address;
         }
 
-        // need to extend insert statement to include phone number and address
         function save()
         {
-            // $GLOBALS['DB']->exec("INSERT INTO contacts (name) VALUES ('{$this->getName()}');");
+            $GLOBALS['DB']->exec("INSERT INTO contacts (name, phone_number, address) VALUES ('{$this->getName()}', '{$this->getPhoneNumber()}', '{$this->getAddress()}');");
         }
 
         static function getAll()
         {
-
+            $returned_contacts = $GLOBALS['DB']->query("SELECT * FROM contacts;");
+            $contacts = array();
+            foreach($returned_contacts as $contact) {
+                $name = $contact['name'];
+                $phone_number = $contact['phone_number'];
+                $address = $contact['address'];
+                array_push($contacts, $new_contact);
+            }
+            return $contacts;
         }
 
         // static function deleteAll()
