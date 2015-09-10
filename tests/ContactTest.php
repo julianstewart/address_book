@@ -14,7 +14,6 @@
 
     class ContactTest extends PHPUnit_Framework_TestCase
     {
-
         protected function tearDown()
         {
             Contact::deleteAll();
@@ -114,10 +113,28 @@
             $this->assertEquals([$test_Contact, $test_Contact2], $result);
 
             //for debugging
-            var_dump($test_Contact);
-            var_dump($test_Contact2);
+            // var_dump($test_Contact);
+            // var_dump($test_Contact2);
         }
 
+        function test_getId()
+        {
+            //arrange
+            $name = "Jane Doe";
+            $phone_number = "555-555-5555";
+            $address = "5 Main Street, Anytown, Anystate 55555";
+            $id = 1;
+            $test_Contact = new Contact($name, $phone_number, $address, $id);
+
+            //act
+            $result = $test_Contact->getId();
+
+            //assert
+            $this->assertEquals(1, $result);
+
+            //for debugging
+            var_dump($test_Contact);
+        }
     }
 
 ?>
