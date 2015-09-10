@@ -26,12 +26,12 @@
     $app->post("/contacts", function() use ($app) {
         $contact = new Contact($_POST['contact_name', 'contact_phone_number', 'contact_address']);
         $contact->save();
-        return $app['twig']->render('create_contact.html.twig', array('newcontact' => $contact));
+        return $app['twig']->render('contacts.html.twig', array('contacts' => Contact::getAll()));
     });
 
     $app->post("/delete_contacts", function() use ($app) {
         Contact::deleteAll();
-        return $app['twig']->render('delete_contacts.html.twig');
+        return $app['twig']->render('index.html.twig');
     });
 
     return $app;
