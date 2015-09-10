@@ -15,6 +15,11 @@
     class ContactTest extends PHPUnit_Framework_TestCase
     {
 
+        protected function tearDown()
+        {
+            Contact::deleteAll();
+        }
+
         function test_getName()
         {
             //arrange
