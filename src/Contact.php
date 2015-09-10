@@ -48,6 +48,7 @@
         function save()
         {
             $GLOBALS['DB']->exec("INSERT INTO contacts (name, phone_number, address) VALUES ('{$this->getName()}', '{$this->getPhoneNumber()}', '{$this->getAddress()}');");
+            $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
         static function getAll()
@@ -58,14 +59,16 @@
                 $name = $contact['name'];
                 $phone_number = $contact['phone_number'];
                 $address = $contact['address'];
+                $id = $contact['id'];
+                $new_contact = new Contact($name, $phone_number, $address, $id);
                 array_push($contacts, $new_contact);
             }
             return $contacts;
         }
 
-        // static function deleteAll()
-        // {
-        // }
+        static function deleteAll()
+        {
+        }
     }
 
 ?>
