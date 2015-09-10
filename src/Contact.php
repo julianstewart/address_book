@@ -82,7 +82,7 @@
             $contacts = Contact::getAll();
             foreach($contacts as $contact) {
                 $contact_id = $contact->getId();
-                if ($contact_id == $contact_id) {
+                if ($contact_id == $search_id) {
                     $found_contact = $contact;
                 }
             }
