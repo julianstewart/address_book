@@ -15,16 +15,14 @@
 
     $app->get("/", function() use ($app) {
         return $app['twig']->render('index.html.twig');
-    })
+    });
 
     $app->get("/contacts", function() use ($app) {
-
         return $app['twig']->render('contacts.html.twig', array('contacts' => Contact::getAll()));
-
     });
 
     $app->post("/contacts", function() use ($app) {
-        $contact = new Contact($_POST['contact_name', 'contact_phone_number', 'contact_address']);
+        $contact = new Contact($_POST['contact_name'], $_POST['contact_phone_number'], $_POST['contact_address']);
         $contact->save();
         return $app['twig']->render('contacts.html.twig', array('contacts' => Contact::getAll()));
     });
