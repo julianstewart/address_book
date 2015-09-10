@@ -7,7 +7,7 @@
 
     require_once "src/Contact.php";
 
-    $server = 'mysql:host=localhost:8889;dbname=address_book_test';
+    $server = 'mysql:host=localhost;dbname=address_book_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -30,7 +30,7 @@
             $this->assertEquals($name, $result);
 
             //for debugging
-            var_dump($test_Contact);
+            // var_dump($test_Contact);
         }
 
         function test_getPhoneNumber()
@@ -48,7 +48,7 @@
             $this->assertEquals($phone_number, $result);
 
             //for debugging
-            var_dump($test_Contact);
+            // var_dump($test_Contact);
         }
 
         function test_getAddress()
@@ -66,7 +66,7 @@
             $this->assertEquals($address, $result);
 
             //for debugging
-            var_dump($test_Contact);
+            // var_dump($test_Contact);
         }
 
         function test_save()
@@ -85,7 +85,7 @@
             $this->assertEquals($test_Contact, $result[0]);
 
             //for debugging
-            var_dump($test_Contact);
+            // var_dump($test_Contact);
         }
 
         function test_getAll()
@@ -99,7 +99,7 @@
             $address2 = "6 Main Street, Anytown, Anystate 66666";
             $test_Contact = new Contact($name, $phone_number, $address);
             $test_Contact->save();
-            $test_Contact2 = new Contact($name, $phone_number, $address);
+            $test_Contact2 = new Contact($name2, $phone_number2, $address2);
             $test_Contact2->save();
 
             //act
