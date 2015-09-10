@@ -75,6 +75,19 @@
         {
             $GLOBALS['DB']->exec("DELETE FROM contacts;");
         }
+
+        static function find($search_id)
+        {
+            $found_contact = null;
+            $contacts = Contact::getAll();
+            foreach($contacts as $contact) {
+                $contact_id = $contact->getId();
+                if ($contact_id == $contact_id) {
+                    $found_contact = $contact;
+                }
+            }
+            return $found_contact;
+        }
     }
 
 ?>
