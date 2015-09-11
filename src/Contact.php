@@ -59,6 +59,8 @@
         function update($new_name, $new_phone_number, $new_address)
         {
             $GLOBALS['DB']->exec("UPDATE contacts SET name = '{$new_name}' WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("UPDATE contacts SET phone_number = '{$phone_number}' WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("UPDATE contacts SET address = '{$address}' WHERE id = {$this->getId()};");
         }
 
         static function getAll()
