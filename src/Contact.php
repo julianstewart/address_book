@@ -56,6 +56,11 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
+        function update($new_name, $new_phone_number, $new_address)
+        {
+            $GLOBALS['DB']->exec("UPDATE contacts SET name = '{$new_name}' WHERE id = {$this->getId()};");
+        }
+
         static function getAll()
         {
             $returned_contacts = $GLOBALS['DB']->query("SELECT * FROM contacts;");

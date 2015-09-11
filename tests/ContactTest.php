@@ -170,7 +170,7 @@
             $address = "5 Main Street, Anytown, Anystate 55555";
             $id = null;
             $test_contact = new Contact($name, $phone_number, $address, $id);
-            $test_contact = save();
+            $test_contact->save();
 
             $new_name = "John Doe";
             $new_phone_number = "666-666-6666";
@@ -180,7 +180,7 @@
             $test_contact->update($new_name, $new_phone_number, $new_address);
 
             //assert
-            $this->assertEquals("John Doe", "666-666-6666", "6 Main Street, Anytown, Anystate 66666", [$test_contact->getName(), $test_contact->getPhoneNumber(), $test_contact->getAddress()]);
+            $this->assertEquals("John Doe", $test_contact->getName());
 
             //for debugging
             var_dump($test_contact);
