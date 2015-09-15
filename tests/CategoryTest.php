@@ -14,10 +14,10 @@
 
     class CategoryTest extends PHPUnit_Framework_TestCase
     {
-        // protected function tearDown()
-        // {
-        //     Category::deleteAll();
-        // }
+        protected function tearDown()
+        {
+            Category::deleteAll();
+        }
 
         function test_getName()
         {
@@ -58,6 +58,23 @@
 
             //assert
             $this->assertEquals($test_Category, $result[0]);
+        }
+
+        function test_getAll()
+        {
+            //arrange
+            $name = "Business";
+            $name2 = "Personal";
+            $test_Category = new Category($name);
+            $test_Category->save();
+            $test_Category2 = new Category($name2);
+            $test_Category2->save();
+
+            //act
+            $result = Category::getAll();
+
+            //assert
+            $this->assertEquals([$test_Category, $test_Category2], $result);
         }
     }
 

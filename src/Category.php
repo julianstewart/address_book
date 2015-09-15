@@ -45,6 +45,11 @@
             return $categories;
         }
 
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM categories;");
+        }
+
     }
 
 ?>
