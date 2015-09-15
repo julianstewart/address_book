@@ -72,7 +72,7 @@
             //for debugging
             // var_dump($test_contact);
         }
-
+        //
         function test_save()
         {
             //arrange
@@ -87,9 +87,6 @@
             //assert
             $result = Contact::getAll();
             $this->assertEquals($test_contact, $result[0]);
-
-            //for debugging
-            // var_dump($test_contact);
         }
 
         function test_getAll()
@@ -180,10 +177,9 @@
             $test_contact->update($new_name, $new_phone_number, $new_address);
 
             //assert
-            $this->assertEquals(["John Doe", "666-666-6666", "6 Main Street, Anytown, Anystate 66666"], [$test_contact->getName(), $test_contact->getPhoneNumber(), $test_contact->getAddress()]);
-
-            //for debugging
-            var_dump($test_contact);
+            $this->assertEquals("666-666-6666", $test_contact->getPhoneNumber());
+            $this->assertEquals("John Doe", $test_contact->getName());
+            $this->assertEquals("6 Main Street, Anytown, Anystate 66666", $test_contact->getAddress());
         }
     }
 
