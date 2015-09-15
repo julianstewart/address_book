@@ -14,10 +14,10 @@
 
     class CategoryTest extends PHPUnit_Framework_TestCase
     {
-        protected function tearDown()
-        {
-            Category::deleteAll();
-        }
+        // protected function tearDown()
+        // {
+        //     Category::deleteAll();
+        // }
 
         function test_getName()
         {
