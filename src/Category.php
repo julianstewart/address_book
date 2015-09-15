@@ -26,6 +26,25 @@
             $this->name = (string) $new_name;
         }
 
+        function save()
+        {
+            $GLOBALS['DB']->exec("INSERT INTO categories (name) VALUES ('{$this->getName()}')");
+            $this->id = $GLOBALS['DB']->lastInsertId();
+        }
+
+        static function getAll()
+        {
+            $returned_categories = $GLOBALS['DB']->query("SELECT * FROM categories;");
+            $categories = array();
+            foreach($returned_categories as $category) {
+                $name = $category['name'];
+                $id = $category['id'];
+                $new_category = new Category($name, $id);
+                array_push($categories, $new_category);
+            }
+            return $categories;
+        }
+
     }
 
 ?>

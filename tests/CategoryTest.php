@@ -45,6 +45,20 @@
             //assert
             $this->assertEquals(true, is_numeric($result));
         }
+
+        function test_save()
+        {
+            //arrange
+            $name = "Business";
+            $test_Category = new Category($name);
+            $test_Category->save();
+
+            //act
+            $result = Category::getAll();
+
+            //assert
+            $this->assertEquals($test_Category, $result[0]);
+        }
     }
 
 ?>
