@@ -15,6 +15,17 @@
         {
             return $this->name;
         }
+
+        function getId()
+        {
+            return $this->id;
+        }
+
+        function setName($new_name)
+        {
+            $this->name = (string) $new_name;
+        }
+
     }
 
 ?>

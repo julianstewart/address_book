@@ -31,6 +31,20 @@
             //assert
             $this->assertEquals($name, $result);
         }
+
+        function test_getId()
+        {
+            //arrange
+            $name = "Business";
+            $id = 1;
+            $test_Category = new Category($name, $id);
+
+            //act
+            $result = $test_Category->getId();
+
+            //assert
+            $this->assertEquals(true, is_numeric($result));
+        }
     }
 
 ?>
