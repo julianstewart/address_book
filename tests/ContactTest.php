@@ -7,7 +7,7 @@
 
     require_once "src/Contact.php";
 
-    $server = 'mysql:host=localhost:8889;dbname=address_book_test';
+    $server = 'mysql:host=localhost;dbname=address_book_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
