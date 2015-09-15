@@ -76,6 +76,23 @@
             //assert
             $this->assertEquals([$test_Category, $test_Category2], $result);
         }
+
+        function test_find()
+        {
+            //arrange
+            $name = "Business";
+            $name2 = "Personal";
+            $test_Category = new Category($name);
+            $test_Category->save();
+            $test_Category2 = new Category($name2);
+            $test_Category2->save();
+
+            //act
+            $result = Category::find($test_Category->getId());
+
+            //assert
+            $this->assertEquals($test_Category, $result);
+        }
     }
 
 ?>
