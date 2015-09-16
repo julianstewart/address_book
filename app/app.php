@@ -29,7 +29,7 @@
 
     $app->get("/contacts/{id}/edit", function($id) use ($app) {
         $contact = Contact::find($id);
-        return $app['twig']->render('contacts_edit.html.twig', array('contact' => $contact));
+        return $app['twig']->render('contact_edit.html.twig', array('contact' => $contact));
     });
 
     $app->patch("/contacts/{id}", function($id) use ($app) {
