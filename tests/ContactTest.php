@@ -177,6 +177,29 @@
             $this->assertEquals("John Doe", $test_contact->getName());
             $this->assertEquals("6 Main Street, Anytown, Anystate 66666", $test_contact->getAddress());
         }
+
+        function testDelete()
+        {
+            //arrange
+            $name = "Jane Doe";
+            $phone_number = "555-555-5555";
+            $address = "5 Main Street, Anytown, Anystate 55555";
+            $id = null;
+            $test_contact = new Contact($name, $phone_number, $address, $id);
+            $test_contact->save();
+
+            $name2 = "John Doe";
+            $phone_number2 = "666-666-6666";
+            $address2 = "6 Main Street, Anytown, Anystate 66666";
+            $test_contact2 = new Contact($name2, $phone_number2, $address2, $id);
+            $test_contact2->save();
+
+            //act
+            $test_contact->delete();
+
+            //assert
+            $this->assertEquals([$test_contact2], Contact::getAll());
+        }
     }
 
 ?>
