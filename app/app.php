@@ -1,6 +1,4 @@
 <?php
-    use Symfony\Component\HttpFoundation\Request;
-    Request::enableHttpMethodParameterOverride();
 
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/Contact.php";
@@ -16,6 +14,10 @@
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
         'twig.path' => __DIR__.'/../views'
     ));
+
+    // must come after the new Silex object is instantiated
+    use Symfony\Component\HttpFoundation\Request;
+    Request::enableHttpMethodParameterOverride();
 
     $app->get("/", function() use ($app) {
         return $app['twig']->render('index.html.twig');
@@ -37,6 +39,12 @@
         $contact = Contact::find($id);
         $contact->update($contact_name, $contact_phone_number, $contact_address);
         return $app['twig']->render('contacts.html.twig', array('contact' => $contact->getContacts()));
+    });
+
+    $app->delete("/contacts/{id}", function($id) use ($app) {
+        $contact = Contact::find($id);
+        $contact->delete();
+        return $app['twig']->render('index.html.twig', array('contacts' => Contact::getAll()));
     });
 
     $app->post("/contacts", function() use ($app) {
