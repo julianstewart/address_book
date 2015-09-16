@@ -24,7 +24,7 @@
 
     $app->get("/contacts/{id}/edit", function($id) use ($app) {
         $contact = Contact::find($id);
-        return $app['twig']->render('contact_edit.html.twig', array('contact' => $contacts));
+        return $app['twig']->render('contacts_edit.html.twig', array('contact' => $contact));
     });
 
     $app->post("/contacts", function() use ($app) {

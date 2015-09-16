@@ -1,7 +1,7 @@
 <html>
 <head>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
-    <title>Rolodexterous</title>
+    <title>Rolodexterous || Contacts</title>
 </head>
 <body>
     <div class='container'>
@@ -12,7 +12,8 @@
                 {% for contact in contacts %}
                     <li>{{ contact.getName }}<br>
                         {{ contact.getPhoneNumber}}<br>
-                        {{ contact.getAddress }}
+                        {{ contact.getAddress }}<br>
+                        <a href='/contacts/{{ contact.getId }}/edit'>Edit this contact</a>
                     </li>
                 {% endfor %}
             </ul>

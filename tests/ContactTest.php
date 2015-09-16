@@ -153,10 +153,6 @@
 
             //assert
             $this->assertEquals($test_contact, $result);
-
-            //for debugging
-            // var_dump($test_contact);
-            // var_dump($test_contact2);
         }
 
         function testUpdate()
