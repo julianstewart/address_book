@@ -35,6 +35,21 @@
             return $this->id;
         }
 
+        function getContacts()
+        {
+            $contacts = Array();
+            $returned_contacts = $GLOBALS['DB']->query("SELECT * FROM contacts WHERE id = {$this->getId()};");
+            foreach($returned_contacts as $contact) {
+                $name = $contact['name'];
+                $phone_number = $contact['phone_number'];
+                $address = $contact['address'];
+                $id = $contact['id'];
+                $new_contact = new Contact($name, $phone_number, $address, $id);
+                array_push($contacts, $new_contact);
+            }
+            return $contacts;
+        }
+
         function setName($new_name)
         {
             $this->name = $new_name;

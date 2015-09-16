@@ -10,6 +10,9 @@
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
+    use Symfony\Component\HttpFoundation\Request;
+    Request::enableHttpMethodParameterOverride();
+
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
         'twig.path' => __DIR__.'/../views'
     ));
@@ -25,6 +28,15 @@
     $app->get("/contacts/{id}/edit", function($id) use ($app) {
         $contact = Contact::find($id);
         return $app['twig']->render('contacts_edit.html.twig', array('contact' => $contact));
+    });
+
+    $app->patch("/contacts/{id}", function($id) use ($app) {
+        $contact_name = $_POST['contact_name'];
+        $contact_phone_number = $_POST['contact_phone_number'];
+        $contact_address = $_POST['contact_address'];
+        $contact = Contact::find($id);
+        $contact->update($contact_name, $contact_phone_number, $contact_address);
+        return $app['twig']->render('contacts.html.twig', array('contact' => $contact->getContacts()));
     });
 
     $app->post("/contacts", function() use ($app) {
