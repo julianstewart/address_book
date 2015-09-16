@@ -81,6 +81,11 @@
             $this->address = $new_address;
         }
 
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM contacts WHERE id = {$this->getId()};");
+        }
+
         static function getAll()
         {
             $returned_contacts = $GLOBALS['DB']->query("SELECT * FROM contacts;");
