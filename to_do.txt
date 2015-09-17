@@ -1,0 +1,3 @@
+Provide a confirmation message when a contact has been successfully updated
+
+Add a link to take users back to the main contact page once they have updated a contact
