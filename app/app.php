@@ -1,8 +1,11 @@
 <?php
-
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/Contact.php";
     // require_once __DIR__."/../src/Category.php";
+
+    // must come after autoload file is included
+    use Symfony\Component\HttpFoundation\Request;
+    Request::enableHttpMethodParameterOverride();
 
     $app = new Silex\Application();
 
@@ -14,10 +17,6 @@
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
         'twig.path' => __DIR__.'/../views'
     ));
-
-    // must come after the new Silex object is instantiated
-    use Symfony\Component\HttpFoundation\Request;
-    Request::enableHttpMethodParameterOverride();
 
     $app->get("/", function() use ($app) {
         return $app['twig']->render('index.html.twig');
