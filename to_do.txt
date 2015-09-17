@@ -1,3 +1,7 @@
+Feature Wishlist
+
 Provide a confirmation message when a contact has been successfully added or updated
 
 Add a link to take users back to the main contact page once they have added or updated a contact
+
+Error handling to prevent empty records from being created in the database when users add or update a contact without entering any information
