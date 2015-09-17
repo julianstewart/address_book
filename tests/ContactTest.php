@@ -6,6 +6,7 @@
     */
 
     require_once "src/Contact.php";
+    require_once "src/Category.php";
 
     $server = 'mysql:host=localhost:8889;dbname=address_book_test';
     $username = 'root';
@@ -17,6 +18,7 @@
         protected function tearDown()
         {
             Contact::deleteAll();
+            Category::deleteAll();
         }
 
         function test_getName()
@@ -117,17 +119,23 @@
         function test_getId()
         {
             //arrange
-            $name = "Jane Doe";
+            $name = "Business";
+            $id = null;
+            $test_category = new Category($name, $id);
+            $test_category->save();
+
+            $contact_name = "Jane Doe";
             $phone_number = "555-555-5555";
             $address = "5 Main Street, Anytown, Anystate 55555";
-            $id = 1;
-            $test_contact = new Contact($name, $phone_number, $address, $id);
+            $category_id = $test_category->getId();
+            $test_contact = new Contact($contact_name, $phone_number, $address, $id, $category_id);
+            $test_contact->save();
 
             //act
             $result = $test_contact->getId();
 
             //assert
-            $this->assertEquals(1, $result);
+            $this->assertEquals(true, is_numeric($result));
 
             //for debugging
             // var_dump($test_contact);

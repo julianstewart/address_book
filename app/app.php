@@ -1,7 +1,7 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/Contact.php";
-    // require_once __DIR__."/../src/Category.php";
+    require_once __DIR__."/../src/Category.php";
 
     // must come after autoload file is included
     use Symfony\Component\HttpFoundation\Request;
@@ -52,20 +52,20 @@
         return $app['twig']->render('contacts.html.twig', array('contacts' => Contact::getAll()));
     });
 
-    // $app->get("/categories", function() use ($app) {
-    //     return $app['twig']->render('categories.html.twig', array('categories' => Category::getAll()));
-    // });
-    //
-    // $app->post("/categories", function() use ($app) {
-    //     $category = new Category($_POST['name']);
-    //     $category->save();
-    //     return $app['twig']->render('categories.html.twig', array('categories' => Category::getAll()));
-    // });
-    //
-    // $app->post("/delete_categories", function() use ($app) {
-    //     Category::deleteAll();
-    //     return $app['twig']->render('index.html.twig');
-    // });
+    $app->get("/categories", function() use ($app) {
+        return $app['twig']->render('categories.html.twig', array('categories' => Category::getAll()));
+    });
+
+    $app->post("/categories", function() use ($app) {
+        $category = new Category($_POST['name']);
+        $category->save();
+        return $app['twig']->render('categories.html.twig', array('categories' => Category::getAll()));
+    });
+
+    $app->post("/delete_categories", function() use ($app) {
+        Category::deleteAll();
+        return $app['twig']->render('index.html.twig');
+    });
 
     $app->post("/delete_contacts", function() use ($app) {
         Contact::deleteAll();
