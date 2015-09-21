@@ -1,6 +1,6 @@
 # _Rolodexterous_
 
-##### _Rolodexterous is a simple PHP/MySQL address book & contact management app originally created for the Epicodus week one object-oriented PHP Code Review, updated 2015-09-17_
+##### _Rolodexterous is a simple PHP/MySQL address book & contact management app originally created for the Epicodus week one object-oriented PHP Code Review, updated 2015-09-21_
 
 #### By _**Julian Stewart**_
 
@@ -17,7 +17,8 @@ _To run the application:_
 <pre>
 CREATE DATABASE address_book;
 USE address_book;
-CREATE TABLE contacts (id serial PRIMARY KEY, name VARCHAR (255), phone_number VARCHAR(255), address VARCHAR (255));
+CREATE TABLE contacts (id serial PRIMARY KEY, name VARCHAR (255), phone_number VARCHAR(255), address VARCHAR (255), category_id INT);
+CREATE TABLE categories (id serial PRIMARY KEY, name VARCHAR (255));
 </pre>
 * _Start your PHP server from the web/ directory within the project folder_
 * _Point your browser to your localhost server address_
