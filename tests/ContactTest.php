@@ -75,22 +75,7 @@
         //     // var_dump($test_contact);
         // }
         // //
-        // function test_save()
-        // {
-        //     //arrange
-        //     $name = "Jane Doe";
-        //     $phone_number = "555-555-5555";
-        //     $address = "5 Main Street, Anytown, Anystate 55555";
-        //     $test_contact = new Contact($name, $phone_number, $address);
-        //
-        //     //act
-        //     $test_contact->save();
-        //
-        //     //assert
-        //     $result = Contact::getAll();
-        //     $this->assertEquals($test_contact, $result[0]);
-        // }
-        //
+
         // function test_getAll()
         // {
         //     //arrange
@@ -162,6 +147,29 @@
             $result = Contact::getAll();
             $this->assertEquals($test_contact, $result[0]);
         }
+
+        function test_save()
+        {
+            //arrange
+            $name = "Business";
+            $id = null;
+            $test_category = new Category($name, $id);
+            $test_category->save();
+
+            $name = "Jane Doe";
+            $phone_number = "555-555-5555";
+            $address = "5 Main Street, Anytown, Anystate 55555";
+            $category_id = $test_category->getId();
+            $test_contact = new Contact($name, $phone_number, $address, $id, $category_id);
+
+            //act
+            $test_contact->save();
+
+            //assert
+            $result = Contact::getAll();
+            $this->assertEquals($test_contact, $result[0]);
+        }
+
 
         // function test_find()
         // {
