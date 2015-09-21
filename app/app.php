@@ -9,7 +9,7 @@
 
     $app = new Silex\Application();
 
-    $server = 'mysql:host=localhost:8889;dbname=address_book';
+    $server = 'mysql:host=localhost;dbname=address_book';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
