@@ -21,6 +21,22 @@
             return $this->id;
         }
 
+        function getContacts()
+        {
+            $contacts = Array();
+            $returned_contacts = $GLOBALS['DB']->query("SELECT * FROM contacts WHERE category_id = {$this->getId()};");
+            foreach($returned_contacts as $contact) {
+                $name = $contact['name'];
+                $phone_number = $contact['phone_number'];
+                $address = $contact['address'];
+                $id = $contact['id'];
+                $category_id = $contact['category_id'];
+                $new_contact = new Contact($name, $phone_number, $address, $id, $category_id);
+                array_push($contacts, $new_contact);
+            }
+            return $contacts;
+        }
+
         function setName($new_name)
         {
             $this->name = (string) $new_name;
