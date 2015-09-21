@@ -6,13 +6,15 @@
         private $phone_number;
         private $address;
         private $id;
+        private $category_id;
 
-        function __construct($name, $phone_number, $address, $id = null)
+        function __construct($name, $phone_number, $address, $id = null, $category_id)
         {
             $this->name = $name;
             $this->phone_number = $phone_number;
             $this->address = $address;
             $this->id = $id;
+            $this->category_id = $category_id;
         }
 
         function getName()
@@ -33,6 +35,11 @@
         function getId()
         {
             return $this->id;
+        }
+
+        function getCategoryId()
+        {
+            return $this->category_id;
         }
 
         function getContacts()
@@ -67,7 +74,7 @@
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO contacts (name, phone_number, address) VALUES ('{$this->getName()}', '{$this->getPhoneNumber()}', '{$this->getAddress()}');");
+            $GLOBALS['DB']->exec("INSERT INTO contacts (name, phone_number, address, category_id) VALUES ('{$this->getName()}', '{$this->getPhoneNumber()}', '{$this->getAddress()}', {$this->getCategoryId()});");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -95,7 +102,8 @@
                 $phone_number = $contact['phone_number'];
                 $address = $contact['address'];
                 $id = $contact['id'];
-                $new_contact = new Contact($name, $phone_number, $address, $id);
+                $category_id = $contact['category_id'];
+                $new_contact = new Contact($name, $phone_number, $address, $id, $category_id);
                 array_push($contacts, $new_contact);
             }
             return $contacts;
