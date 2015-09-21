@@ -6,6 +6,7 @@
     */
 
     require_once "src/Category.php";
+    require_once "src/Contact.php";
 
     $server = 'mysql:host=localhost;dbname=address_book_test';
     $username = 'root';
@@ -17,6 +18,7 @@
         protected function tearDown()
         {
             Category::deleteAll();
+            Contact::deleteAll();
         }
 
         function test_getName()
@@ -92,6 +94,35 @@
 
             //assert
             $this->assertEquals($test_Category, $result);
+        }
+
+        function testGetTasks()
+        {
+            //arrange
+            $name = "Business";
+            $id = null;
+            $test_category = new Category($name, $id);
+            $test_category->save();
+
+            $test_category_id = $test_category->getId();
+
+            $contact_name = "Jane Doe";
+            $phone_number = "555-555-5555";
+            $address = "5 Main Street, Anytown, Anystate 55555";
+            $test_contact = new Contact($contact_name, $phone_number, $address, $id, $test_category_id);
+            $test_contact->save();
+
+            $contact_name2 = "John Doe";
+            $phone_number2 = "666-666-6666";
+            $address2 = "6 Main Street, Anytown, Anystate 66666";
+            $test_contact2 = new Contact($contact_name2, $phone_number2, $address2, $id, $test_category_id);
+            $test_contact2->save();
+
+            //act
+            $results = $test_category->getContacts();
+
+            //assert
+            $this->assertEquals([$test_contact, $test_contact2], $result);
         }
     }
 
