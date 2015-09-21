@@ -76,31 +76,6 @@
         // }
         // //
 
-        // function test_getAll()
-        // {
-        //     //arrange
-        //     $name = "Jane Doe";
-        //     $name2 = "John Doe";
-        //     $phone_number = "555-555-5555";
-        //     $phone_number2 = "666-666-6666";
-        //     $address = "5 Main Street, Anytown, Anystate 55555";
-        //     $address2 = "6 Main Street, Anytown, Anystate 66666";
-        //     $test_contact = new Contact($name, $phone_number, $address);
-        //     $test_contact->save();
-        //     $test_contact2 = new Contact($name2, $phone_number2, $address2);
-        //     $test_contact2->save();
-        //
-        //     //act
-        //     $result = Contact::getAll();
-        //
-        //     //assert
-        //     $this->assertEquals([$test_contact, $test_contact2], $result);
-        //
-        //     //for debugging
-        //     // var_dump($test_contact);
-        //     // var_dump($test_contact2);
-        // }
-
         function test_getId()
         {
             //arrange
@@ -121,9 +96,6 @@
 
             //assert
             $this->assertEquals(true, is_numeric($result));
-
-            //for debugging
-            var_dump($test_contact);
         }
 
         function test_getCategoryId()
@@ -156,11 +128,11 @@
             $test_category = new Category($name, $id);
             $test_category->save();
 
-            $name = "Jane Doe";
+            $contact_name = "Jane Doe";
             $phone_number = "555-555-5555";
             $address = "5 Main Street, Anytown, Anystate 55555";
             $category_id = $test_category->getId();
-            $test_contact = new Contact($name, $phone_number, $address, $id, $category_id);
+            $test_contact = new Contact($contact_name, $phone_number, $address, $id, $category_id);
 
             //act
             $test_contact->save();
@@ -170,6 +142,63 @@
             $this->assertEquals($test_contact, $result[0]);
         }
 
+        function test_getAll()
+        {
+            //arrange
+            $name = "Business";
+            $id = null;
+            $test_category = new Category($name, $id);
+            $test_category->save();
+
+            $contact_name = "Jane Doe";
+            $phone_number = "555-555-5555";
+            $address = "5 Main Street, Anytown, Anystate 55555";
+            $category_id = $test_category->getId();
+            $test_contact = new Contact($contact_name, $phone_number, $address, $id, $category_id);
+            $test_contact->save();
+
+            $contact_name2 = "John Doe";
+            $phone_number2 = "666-666-6666";
+            $address2 = "6 Main Street, Anytown, Anystate 66666";
+            $test_contact2 = new Contact($contact_name2, $phone_number2, $address2, $id, $category_id);
+            $test_contact2->save();
+
+            //act
+            $result = Contact::getAll();
+
+            //assert
+            $this->assertEquals([$test_contact, $test_contact2], $result);
+        }
+
+        function test_deleteAll()
+        {
+            //arrange
+            $name = "Business";
+            $id = null;
+            $test_category = new Category($name, $id);
+            $test_category->save();
+
+            $contact_name = "Jane Doe";
+            $phone_number = "555-555-5555";
+            $address = "5 Main Street, Anytown, Anystate 55555";
+            $category_id = $test_category->getId();
+            $test_contact = new Contact($contact_name, $phone_number, $address, $id, $category_id);
+            $test_contact->save();
+
+            $contact_name2 = "John Doe";
+            $phone_number2 = "666-666-6666";
+            $address2 = "6 Main Street, Anytown, Anystate 66666";
+            $test_contact2 = new Contact($contact_name2, $phone_number2, $address2, $id, $category_id);
+            $test_contact2->save();
+
+            //act
+            Contact::deleteAll();
+
+            //assert
+            $result = Contact::getAll();
+            $this->assertEquals([], $result);
+
+        }
 
         // function test_find()
         // {
