@@ -33,7 +33,7 @@
 
     $app->get("/categories/{id}", function($id) use ($app) {
         $category = Category::find($id);
-        return $app['twig']->render('category.html.twig', array('category' => $category, 'contact'->getTasks()));
+        return $app['twig']->render('category.html.twig', array('category' => $category, 'contact' => $category->getContacts()));
     });
 
     $app->patch("/contacts/{id}", function($id) use ($app) {
