@@ -26,13 +26,13 @@
                 <input id="contact_address" name="contact_address" type="text">
             </div>
 
-            <button class="btn-info" type="submit">Update</button>
+            <button class="btn btn-sm btn-primary" type="submit">Update</button>
         </form>
 
         <form action="/contacts/{{ contact.getId }}" method="post">
             <input name="_method" type="hidden" value="delete">
 
-            <button class="btn-info" type="submit">Delete this contact</button>
+            <button class="btn btn-sm btn-primary" type="submit">Delete this contact</button>
         </form>
 
         <p><a href='/'>Home</a></p>

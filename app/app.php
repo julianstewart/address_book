@@ -23,6 +23,8 @@
     });
 
     $app->get("/contacts", function() use ($app) {
+        $thing = Contact::getAll();
+        var_dump($thing);
         return $app['twig']->render('contacts.html.twig', array('contacts' => Contact::getAll()));
     });
 
@@ -33,7 +35,7 @@
 
     $app->get("/categories/{id}", function($id) use ($app) {
         $category = Category::find($id);
-        return $app['twig']->render('category.html.twig', array('category' => $category, 'contact' => $category->getContacts()));
+        return $app['twig']->render('category.html.twig', array('category' => $category, 'contacts' => $category->getContacts()));
     });
 
     $app->patch("/contacts/{id}", function($id) use ($app) {
