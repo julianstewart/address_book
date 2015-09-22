@@ -117,7 +117,7 @@
 
         }
 
-        function testGetTasks()
+        function testGetContacts()
         {
             //arrange
             $name = "Business";
