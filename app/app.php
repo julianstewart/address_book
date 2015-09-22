@@ -59,7 +59,7 @@
         $contact = new Contact($contact_name, $contact_phone_number, $contact_address, $id = null, $category_id);
         $contact->save();
         $category = Category::find($category_id);
-        return $app['twig']->render('category.html.twig', array('category' => $category, 'tasks' => $category->getTasks()));
+        return $app['twig']->render('category.html.twig', array('category' => $category, 'tasks' => $category->getContacts()));
 
         $contact = new Contact($_POST['contact_name'], $_POST['contact_phone_number'], $_POST['contact_address']);
         $contact->save();
