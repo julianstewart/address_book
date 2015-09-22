@@ -10,8 +10,8 @@
             {% if contacts is not empty %}
                 <p>Here are your contacts:</p>
                 <ul>
-                    {% for task in tasks %}
-                        <li>{{ task.getDescription }}</li>
+                    {% for contact in contacts %}
+                        <li>{{ contact.getName }}</li>
                     {% endfor %}
                 </ul>
             {% endif %}
