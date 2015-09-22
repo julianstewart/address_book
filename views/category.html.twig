@@ -1,12 +1,36 @@
 <html>
     <head>
-        <title>Rolodexterous || Category</title>
+        <title>Rolodexterous || Categories || {{ category.getName }}</title>
     </head>
     <body>
-        <h1>{{ category.getName }}</h1>
+        <div class="container">
+            <h1>{{ category.getName }}</h1>
 
-        {% if tasks is not empty %}
-            <p></p>
-        {% endif %}
+            {% if contacts is not empty %}
+                <p>Here are your contacts:</p>
+                <ul>
+                    {% for task in tasks %}
+                        <li>{{ task.getDescription }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <h4>Add a contact</h4>
+
+            <form action="/contacts" method="post">
+                <input id="category_id" name="category_id" type="hidden" value="{{ category.getId() }}">
+                <label for="contact_name">Contact Name</label>
+                <input id="contact_name" name="contact_name" type="text">
+
+                <label for="contact_phone_number">Contact Phone Number</label>
+                <input id="contact_phone_number" name="contact_phone_number" type="text">
+
+                <label for="contact_address">Contact Address</label>
+                <input id="contact_address" name="contact_address" type="text">
+
+
+                <button type="submit">Add Contact</button>
+            </form>
+        </div>
     </body>
 </html>
