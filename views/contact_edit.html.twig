@@ -1,40 +1,40 @@
 <html>
-    <head>
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-        <title>Rolodexterous || Edit Contact</title>
-    </head>
-    <body>
-        <div class="container">
-            <h4>Update contact information for {{ contact.getName }}</h4>
+<head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <title>Rolodexterous || Edit Contact || {{ contact.getName }}</title>
+</head>
+<body>
+    <div class="container">
+        <h4>Update contact information for {{ contact.getName }}</h4>
 
-            <form action="/contacts/{{ contact.getId }}" method="post">
-                <input name="_method" type="hidden" value="patch">
+        <form action="/contacts/{{ contact.getId }}" method="post">
+            <input name="_method" type="hidden" value="patch">
 
-                <div class="form-group">
-                    <label for="contact_name">New contact name:</label>
-                    <input id="contact_name" name="contact_name" type="text">
-                </div>
+            <div class="form-group">
+                <label for="contact_name">New contact name:</label>
+                <input id="contact_name" name="contact_name" type="text">
+            </div>
 
-                <div class="form-group">
-                    <label for="contact_phone_number">New contact phone number:</label>
-                    <input id="contact_phone_number" name="contact_phone_number" type="text">
-                </div>
+            <div class="form-group">
+                <label for="contact_phone_number">New contact phone number:</label>
+                <input id="contact_phone_number" name="contact_phone_number" type="text">
+            </div>
 
-                <div class="form-group">
-                    <label for="contact_address">New contact address:</label>
-                    <input id="contact_address" name="contact_address" type="text">
-                </div>
+            <div class="form-group">
+                <label for="contact_address">New contact address:</label>
+                <input id="contact_address" name="contact_address" type="text">
+            </div>
 
-                <button class="btn-info" type="submit">Update</button>
-            </form>
+            <button class="btn-info" type="submit">Update</button>
+        </form>
 
-            <form action="/contacts/{{ contact.getId }}" method="post">
-                <input name="_method" type="hidden" value="delete">
+        <form action="/contacts/{{ contact.getId }}" method="post">
+            <input name="_method" type="hidden" value="delete">
 
-                <button class="btn-info" type="submit">Delete this contact</button>
-            </form>
+            <button class="btn-info" type="submit">Delete this contact</button>
+        </form>
 
-            <p><a href='/'>Home</a></p>
-        </div>
-    </body>
+        <p><a href='/'>Home</a></p>
+    </div>
+</body>
 </html>

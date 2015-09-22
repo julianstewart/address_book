@@ -1,33 +1,33 @@
 <html>
-    <head>
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-        <title>Rolodexterous || Categories</title>
-    </head>
-    <body>
-        <div class='container'>
-            <h1>Categories</h1>
+<head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <title>Rolodexterous || Categories</title>
+</head>
+<body>
+    <div class='container'>
+        <h1>Categories</h1>
 
-            {% if categories is not empty %}
-                <p>Here are all your contact categories:</p>
-                <ul>
-                    {% for category in categories %}
-                        <li>{{ category.getName }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
+        {% if categories is not empty %}
+            <p>Here are all your contact categories:</p>
+            <ul>
+                {% for category in categories %}
+                    <li>{{ category.getName }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
-            <form action='/categories' method='post'>
-                <div class="form-group">
-                    <label for='name'>Category Name</label>
-                    <input id='name' name='name' type='text' required>
-                </div>
-                <button class='btn-info' type='submit'>Add Category</button>
-            </form>
-            <form action='/delete_categories' method='post'>
-                <button class='btn-info' type='submit'>Delete All Categories</button>
-            </form>
+        <form action='/categories' method='post'>
+            <div class="form-group">
+                <label for='name'>Category Name</label>
+                <input id='name' name='name' type='text' required>
+            </div>
+            <button class='btn-info' type='submit'>Add Category</button>
+        </form>
+        <form action='/delete_categories' method='post'>
+            <button class='btn-info' type='submit'>Delete All Categories</button>
+        </form>
 
-            <p><a href='/'>Home</a></p>
-        </div>
-    </body>
+        <p><a href='/'>Home</a></p>
+    </div>
+</body>
 </html>

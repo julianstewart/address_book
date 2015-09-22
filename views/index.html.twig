@@ -1,31 +1,33 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <title>Rolodexterous || Home</title>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Welcome to Rolodexterous</h1>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <title>Rolodexterous || Home</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Rolodexterous</h1>
 
-            <p>Create a new contact category:</p>
+        <p>Create a new contact category:</p>
 
-            <form action="/categories" method="post">
+        <form action="/categories" method="post">
+            <div class="form-group">
                 <label for="name">Category name:</label>
                 <input id="name" name="name" type="text">
+            </div>
 
-                <button type="submit">Add category</button>
-            </form>
+            <button class="btn-info" type="submit">Add category</button>
+        </form>
 
-            {% if categories is not empty %}
-                <p>Here are all of your contact categories:</p>
-                <ul>
-                    {% for category in categories %}
-                        <li><a href="/categories/{{ category.getId }}">{{ category.getName }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <p>There are no contact categories yet!</p>
-            {% endif %}
-        </div>
-    </body>
+        {% if categories is not empty %}
+            <p>Here are all of your contact categories:</p>
+            <ul>
+                {% for category in categories %}
+                    <li><a href="/categories/{{ category.getId }}">{{ category.getName }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>There are no contact categories yet!</p>
+        {% endif %}
+    </div>
+</body>
 </html>
