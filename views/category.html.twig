@@ -2,7 +2,7 @@
 <head>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rolodexterous || Categories || {{ category.getName }}</title>
+    <title>Rolodexterous || Categories || {{ category.getName }} || {{ contact.getName }}</title>
 </head>
 <body>
     <div class="container">
@@ -12,8 +12,9 @@
             <p>Here are your contacts:</p>
             <ul>
                 {% for contact in contacts %}
-                    <li>{{ contact.getName }}</li>
-                    <li>{{ contact.getPhoneNumber }}</li>
+                    <li>{{ contact.getName }}<br>
+                    {{ contact.getPhoneNumber }}<br>
+                    {{ contact.getAddress}}</li>
                 {% endfor %}
             </ul>
         {% endif %}
@@ -42,7 +43,9 @@
             <button class="btn btn-sm btn-primary" type="submit">Add Contact</button>
         </form>
 
-        <p><a href='/'>Home</a></p>
+        <p><a href="/categories/{{ category.getId }}/edit">Edit this category</a></p>
+
+        <p><a href="/">Home</a></p>
     </div>
 </body>
 </html>
