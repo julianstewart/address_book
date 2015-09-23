@@ -17,13 +17,14 @@
                 </div>
 
                 <button class="btn btn-sm btn-primary" type="submit">Update</button>
+
+                <form action="/categories/{{ category.getId }}" method="post">
+                    <input name="_method" type="hidden" value="delete">
+
+                    <button class="btn btn-sm btn-primary" type="submit">Delete this contact category</button>
+                </form>
             </form>
 
-            <form action="/categories/{{ category.getId }}" method="post">
-                <input name="_method" type="hidden" value="delete">
-
-                <button class="btn btn-sm btn-primary" type="submit">Delete this contact category</button>
-            </form>
         </div>
     </body>
 </html>
