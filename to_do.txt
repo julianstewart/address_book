@@ -4,6 +4,8 @@ Provide a confirmation message when a contact has been successfully added or upd
 
 Add a link to take users back to the main contact page once they have added or updated a contact
 
+- complete
+
 Error handling to prevent empty records from being created in the database when users add a contact without entering all information
 
 - addressed through use of the required attribute on the main contacts page
