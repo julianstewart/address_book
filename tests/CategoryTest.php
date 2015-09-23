@@ -181,6 +181,28 @@
             $this->assertEquals([], $result);
 
         }
+
+        function testDeleteCategoryContacts()
+        {
+            //arrange
+            $name = "Business";
+            $id = null;
+            $test_category = new Category($name, $id);
+            $test_category->save();
+
+            $contact_name = "Jane Doe";
+            $phone_number = "555-555-5555";
+            $address = "5 Main Street, Anytown, Anystate 55555";
+            $category_id = $test_category->getId();
+            $test_contact = new Contact($contact_name, $phone_number, $address, $id, $category_id);
+            $test_contact->save();
+
+            //act
+            $test_category->delete();
+
+            //assert
+            $this->assertEquals([], Contact::getAll());
+        }
     }
 
 ?>
