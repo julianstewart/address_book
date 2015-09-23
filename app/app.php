@@ -58,6 +58,12 @@
         return $app['twig']->render('index.html.twig', array('contacts' => Contact::getAll()));
     });
 
+    $app->delete("/categories/{id}", function($id) use ($app) {
+        $category = Category::find($id);
+        $category->delete();
+        return($app['twig']->render('index.html.twig', array('categories' => Category::getAll()));
+    });
+
     $app->post("/contacts", function() use ($app) {
         $contact_name = $_POST['contact_name'];
         $contact_phone_number = $_POST['contact_phone_number'];
