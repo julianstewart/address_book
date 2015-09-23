@@ -160,7 +160,7 @@
             $test_category->update($new_name);
 
             //assert
-            $this->assertEquals("Business", $test_category->getName());
+            $this->assertEquals("Personal", $test_category->getName());
         }
     }
 
