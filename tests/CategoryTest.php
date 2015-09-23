@@ -96,27 +96,6 @@
             $this->assertEquals($test_Category, $result);
         }
 
-        function test_deleteAll()
-        {
-            //arrange
-            $name = "Business";
-            $id = null;
-            $test_category = new Category($name, $id);
-            $test_category->save();
-
-            $name2 = "Personal";
-            $test_category2 = new Category($name, $id);
-            $test_category2->save();
-
-            //act
-            Category::deleteAll();
-
-            //assert
-            $result = Category::getAll();
-            $this->assertEquals([], $result);
-
-        }
-
         function test_getContacts()
         {
             //arrange
@@ -161,6 +140,46 @@
 
             //assert
             $this->assertEquals("Personal", $test_category->getName());
+        }
+
+        function test_delete()
+        {
+            //arrange
+            $name = "Business";
+            $id = null;
+            $test_category = new Category($name, $id);
+            $test_category->save();
+
+            $name2 = "Personal";
+            $test_category2 = new Category($name2, $id);
+            $test_category2->save();
+
+            //act
+            $test_category->delete();
+
+            //assert
+            $this->assertEquals([$test_category2], Category::getAll());
+        }
+
+        function test_deleteAll()
+        {
+            //arrange
+            $name = "Business";
+            $id = null;
+            $test_category = new Category($name, $id);
+            $test_category->save();
+
+            $name2 = "Personal";
+            $test_category2 = new Category($name, $id);
+            $test_category2->save();
+
+            //act
+            Category::deleteAll();
+
+            //assert
+            $result = Category::getAll();
+            $this->assertEquals([], $result);
+
         }
     }
 
