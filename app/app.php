@@ -38,6 +38,11 @@
         return $app['twig']->render('category.html.twig', array('category' => $category, 'contacts' => $category->getContacts()));
     });
 
+    $app->get("/categories/{id}/edit", function($id) use ($app) {
+        $category = Category::find($id);
+        return $app['twig']->render('category_edit.html.twig', array('category' => $category));
+    });
+
     $app->patch("/contacts/{id}", function($id) use ($app) {
         $contact_name = $_POST['contact_name'];
         $contact_phone_number = $_POST['contact_phone_number'];
