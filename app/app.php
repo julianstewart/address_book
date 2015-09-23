@@ -52,6 +52,13 @@
         return $app['twig']->render('contacts.html.twig', array('contact' => $contact->getContacts()));
     });
 
+    $app->patch("/categories/{id}", function ($id) use ($app) {
+        $name = $_POST['name'];
+        $category = Category::find($id);
+        $category->update($name);
+        return $app['twig']->render('category.html.twig', array('category' => $category, 'contacts' => $category->getContacts()));
+    });
+
     $app->delete("/contacts/{id}", function($id) use ($app) {
         $contact = Contact::find($id);
         $contact->delete();
@@ -61,7 +68,7 @@
     $app->delete("/categories/{id}", function($id) use ($app) {
         $category = Category::find($id);
         $category->delete();
-        return($app['twig']->render('index.html.twig', array('categories' => Category::getAll()));
+        return $app['twig']->render('index.html.twig', array('categories' => Category::getAll()));
     });
 
     $app->post("/contacts", function() use ($app) {
