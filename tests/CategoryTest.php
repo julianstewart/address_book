@@ -117,7 +117,7 @@
 
         }
 
-        function testGetContacts()
+        function test_getContacts()
         {
             //arrange
             $name = "Business";
@@ -144,6 +144,23 @@
 
             //assert
             $this->assertEquals([$test_contact, $test_contact2], $result);
+        }
+
+        function test_update()
+        {
+            //arrange
+            $name = "Business";
+            $id = null;
+            $test_category = new Category($name, $id);
+            $test_category->save();
+
+            $new_name = "Personal";
+
+            //act
+            $test_category->update($new_name);
+
+            //assert
+            $this->assertEquals("Business", $test_category->getName());
         }
     }
 
