@@ -52,28 +52,20 @@
             $this->assertEquals("John Doe", $result);
         }
 
-        // function test_getId()
-        // {
-        //     //arrange
-        //     $name = "Business";
-        //     $id = null;
-        //     $test_category = new Category($name, $id);
-        //     $test_category->save();
-        //
-        //     $contact_name = "Jane Doe";
-        //     $phone_number = "555-555-5555";
-        //     $address = "5 Main Street, Anytown, Anystate 55555";
-        //     $category_id = $test_category->getId();
-        //     $test_contact = new Contact($contact_name, $phone_number, $address, $id, $category_id);
-        //     $test_contact->save();
-        //
-        //     //act
-        //     $result = $test_contact->getId();
-        //
-        //     //assert
-        //     $this->assertEquals(true, is_numeric($result));
-        // }
-        //
+        function test_getId()
+        {
+            //arrange
+            $id = 1;
+            $name = "Jane Doe";
+            $test_contact = new Contact($name, $id);
+
+            //act
+            $result = $test_contact->getId();
+
+            //assert
+            $this->assertEquals(1, $result);
+        }
+
         // function test_getCategoryId()
         // {
         //     //arrange
