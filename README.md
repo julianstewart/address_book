@@ -17,8 +17,9 @@ _To run the application:_
 <pre>
 CREATE DATABASE address_book;
 USE address_book;
-CREATE TABLE contacts (id serial PRIMARY KEY, name VARCHAR (255), phone_number VARCHAR(255), address VARCHAR (255), category_id INT);
+CREATE TABLE contacts (id serial PRIMARY KEY, name VARCHAR (255), phone_number VARCHAR(255), address VARCHAR (255));
 CREATE TABLE categories (id serial PRIMARY KEY, name VARCHAR (255));
+CREATE TABLE categories_contacts (id serial PRIMARY KEY, category_id int, task_id int);
 </pre>
 * _Start your PHP server from the web/ directory within the project folder_
 * _Point your browser to your localhost server address_
