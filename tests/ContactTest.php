@@ -36,6 +36,22 @@
             $this->assertEquals($name, $result);
         }
 
+        function testSetContactName()
+        {
+            //arrange
+            $name = "Jane Doe";
+            $phone_number = "";
+            $address = "";
+            $test_contact = new Contact($name, $phone_number, $address);
+
+            //act
+            $test_contact->setName("John Doe");
+            $result = $test_contact->getName();
+
+            //assert
+            $this->assertEquals("John Doe", $result);
+        }
+
         // function test_getId()
         // {
         //     //arrange
