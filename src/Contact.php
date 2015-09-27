@@ -6,15 +6,13 @@
         private $phone_number;
         private $address;
         private $id;
-        private $category_id;
 
-        function __construct($name, $phone_number, $address, $id = null, $category_id)
+        function __construct($name, $phone_number, $address, $id = null)
         {
             $this->name = $name;
             $this->phone_number = $phone_number;
             $this->address = $address;
             $this->id = $id;
-            $this->category_id = $category_id;
         }
 
         function getName()
